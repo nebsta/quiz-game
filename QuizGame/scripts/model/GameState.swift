@@ -22,6 +22,10 @@ class GameState : ObservableObject {
         return questions[currentQuestionIndex]
     }
     
+    public init(_ questions:[QuizQuestion] = []) {
+        self.questions = questions
+    }
+    
     public func reset(_ questions:[QuizQuestion]) {
         self.questions = questions
         self.currentQuestionIndex = 0
@@ -29,4 +33,9 @@ class GameState : ObservableObject {
         self.averageAnswerTime = 0
         self.questionTimer = 0
     }
+}
+
+enum Lifeline {
+    case FiftyFifty
+    case TenSeconds
 }

@@ -28,6 +28,10 @@
 		4357BA6C2785A4EC0061B58E /* QuizResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA6B2785A4EC0061B58E /* QuizResults.swift */; };
 		4357BA6E2785A6050061B58E /* ImageQuestionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA6D2785A6050061B58E /* ImageQuestionOption.swift */; };
 		4357BA702785A6700061B58E /* TextQuestionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA6F2785A6700061B58E /* TextQuestionOption.swift */; };
+		4371D2112786322F00C6FE01 /* LifelinePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371D2102786322F00C6FE01 /* LifelinePanel.swift */; };
+		4371D2182786337F00C6FE01 /* LifelineOne.png in Resources */ = {isa = PBXBuildFile; fileRef = 4371D2162786337F00C6FE01 /* LifelineOne.png */; };
+		4371D2192786337F00C6FE01 /* LifelineTwo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4371D2172786337F00C6FE01 /* LifelineTwo.jpeg */; };
+		4371D21B278635D100C6FE01 /* LifelineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371D21A278635D100C6FE01 /* LifelineButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,10 @@
 		4357BA6B2785A4EC0061B58E /* QuizResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResults.swift; sourceTree = "<group>"; };
 		4357BA6D2785A6050061B58E /* ImageQuestionOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQuestionOption.swift; sourceTree = "<group>"; };
 		4357BA6F2785A6700061B58E /* TextQuestionOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextQuestionOption.swift; sourceTree = "<group>"; };
+		4371D2102786322F00C6FE01 /* LifelinePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifelinePanel.swift; sourceTree = "<group>"; };
+		4371D2162786337F00C6FE01 /* LifelineOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LifelineOne.png; sourceTree = "<group>"; };
+		4371D2172786337F00C6FE01 /* LifelineTwo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LifelineTwo.jpeg; sourceTree = "<group>"; };
+		4371D21A278635D100C6FE01 /* LifelineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifelineButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,8 @@
 		4357BA5C2785A3610061B58E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4371D2162786337F00C6FE01 /* LifelineOne.png */,
+				4371D2172786337F00C6FE01 /* LifelineTwo.jpeg */,
 				4357BA5D2785A3B60061B58E /* Bowser.png */,
 				4357BA5F2785A3B60061B58E /* Luigi.png */,
 				4357BA5E2785A3B60061B58E /* Mario.png */,
@@ -178,6 +188,8 @@
 			children = (
 				4357BA592785A2920061B58E /* OptionCard.swift */,
 				43243F4A2785E99E0012F5A8 /* QuestionPanel.swift */,
+				4371D2102786322F00C6FE01 /* LifelinePanel.swift */,
+				4371D21A278635D100C6FE01 /* LifelineButton.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -244,7 +256,9 @@
 				4357BA4D2785A0300061B58E /* Preview Assets.xcassets in Resources */,
 				4357BA4A2785A0300061B58E /* Assets.xcassets in Resources */,
 				4357BA642785A3B60061B58E /* Peach.png in Resources */,
+				4371D2182786337F00C6FE01 /* LifelineOne.png in Resources */,
 				4357BA632785A3B60061B58E /* Luigi.png in Resources */,
+				4371D2192786337F00C6FE01 /* LifelineTwo.jpeg in Resources */,
 				4357BA612785A3B60061B58E /* Bowser.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +276,7 @@
 				43243F522785EB230012F5A8 /* QuestionProvider.swift in Sources */,
 				43243F542785EB4F0012F5A8 /* DummyQuestionProvider.swift in Sources */,
 				43243F4B2785E99E0012F5A8 /* QuestionPanel.swift in Sources */,
+				4371D2112786322F00C6FE01 /* LifelinePanel.swift in Sources */,
 				4357BA572785A15D0061B58E /* SummaryView.swift in Sources */,
 				43243F4F2785EA0C0012F5A8 /* GameState.swift in Sources */,
 				4357BA6E2785A6050061B58E /* ImageQuestionOption.swift in Sources */,
@@ -270,6 +285,7 @@
 				4357BA462785A02F0061B58E /* QuizGameApp.swift in Sources */,
 				4357BA6A2785A4660061B58E /* QuestionOption.swift in Sources */,
 				4357BA6C2785A4EC0061B58E /* QuizResults.swift in Sources */,
+				4371D21B278635D100C6FE01 /* LifelineButton.swift in Sources */,
 				43243F5A27861A280012F5A8 /* ArrayExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

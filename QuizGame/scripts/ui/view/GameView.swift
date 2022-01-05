@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameView: View {
     @StateObject var gameState:GameState = GameState();
+    @State var quizComplete:Bool = false
 
     private let questionProvider:QuestionProvider
     
@@ -19,19 +20,31 @@ struct GameView: View {
     var body: some View {
 
         VStack {
-            QuestionPanel(gameState, onNextQuestion)
+            QuestionPanel(gameState, onQuestionAnswered)
+            LifelinePanel(onLifelineSelected).frame(maxWidth:.infinity, maxHeight: 50)
             
+            NavigationLink(destination: SummaryView(), isActive: self.$quizComplete) {EmptyView()}
             
         }.onAppear(perform: onViewAppear)
     }
     
     private func onViewAppear() {
-        print("setup")
         let questions:[QuizQuestion] = self.questionProvider.getQuizQuestions(2)
         gameState.reset(questions)
     }
     
-    private func onNextQuestion() {
+    private func onQuestionAnswered(_ result:QuestionResult) {
+        
+        // check if we've reached the end of the quiz
+        guard self.gameState.currentQuestionIndex + 1 < self.gameState.questions.count else {
+            self.quizComplete = true
+            return
+        }
+        
+        self.gameState.currentQuestionIndex += 1
+    }
+    
+    private func onLifelineSelected(_ lifeline:Lifeline) {
         
     }
 }
