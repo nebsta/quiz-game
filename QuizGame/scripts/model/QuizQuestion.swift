@@ -8,12 +8,12 @@
 import Foundation
 
 struct QuizQuestion {
-    public let question:String;
+    public let text:String;
     public let answerIndex:Int;
     public let options:[QuestionOption];
     
     public init(_ question:String = "", _ answerIndex:Int = 0, _ options:[QuestionOption] = []) {
-        self.question = question;
+        self.text = question;
         self.answerIndex = answerIndex;
         self.options = options;
     }

@@ -18,7 +18,7 @@
 		4357BA4D2785A0300061B58E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4357BA4C2785A0300061B58E /* Preview Assets.xcassets */; };
 		4357BA552785A1530061B58E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA542785A1530061B58E /* GameView.swift */; };
 		4357BA572785A15D0061B58E /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA562785A15D0061B58E /* SummaryView.swift */; };
-		4357BA5A2785A2920061B58E /* QuizCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA592785A2920061B58E /* QuizCard.swift */; };
+		4357BA5A2785A2920061B58E /* OptionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA592785A2920061B58E /* OptionCard.swift */; };
 		4357BA612785A3B60061B58E /* Bowser.png in Resources */ = {isa = PBXBuildFile; fileRef = 4357BA5D2785A3B60061B58E /* Bowser.png */; };
 		4357BA622785A3B60061B58E /* Mario.png in Resources */ = {isa = PBXBuildFile; fileRef = 4357BA5E2785A3B60061B58E /* Mario.png */; };
 		4357BA632785A3B60061B58E /* Luigi.png in Resources */ = {isa = PBXBuildFile; fileRef = 4357BA5F2785A3B60061B58E /* Luigi.png */; };
@@ -28,8 +28,6 @@
 		4357BA6C2785A4EC0061B58E /* QuizResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA6B2785A4EC0061B58E /* QuizResults.swift */; };
 		4357BA6E2785A6050061B58E /* ImageQuestionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA6D2785A6050061B58E /* ImageQuestionOption.swift */; };
 		4357BA702785A6700061B58E /* TextQuestionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA6F2785A6700061B58E /* TextQuestionOption.swift */; };
-		4357BA722785A69D0061B58E /* ImageQuizCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA712785A69D0061B58E /* ImageQuizCard.swift */; };
-		4357BA742785A6A80061B58E /* TextQuizCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4357BA732785A6A80061B58E /* TextQuizCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +43,7 @@
 		4357BA4C2785A0300061B58E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4357BA542785A1530061B58E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4357BA562785A15D0061B58E /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
-		4357BA592785A2920061B58E /* QuizCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCard.swift; sourceTree = "<group>"; };
+		4357BA592785A2920061B58E /* OptionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCard.swift; sourceTree = "<group>"; };
 		4357BA5D2785A3B60061B58E /* Bowser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bowser.png; sourceTree = "<group>"; };
 		4357BA5E2785A3B60061B58E /* Mario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mario.png; sourceTree = "<group>"; };
 		4357BA5F2785A3B60061B58E /* Luigi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Luigi.png; sourceTree = "<group>"; };
@@ -55,8 +53,6 @@
 		4357BA6B2785A4EC0061B58E /* QuizResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResults.swift; sourceTree = "<group>"; };
 		4357BA6D2785A6050061B58E /* ImageQuestionOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQuestionOption.swift; sourceTree = "<group>"; };
 		4357BA6F2785A6700061B58E /* TextQuestionOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextQuestionOption.swift; sourceTree = "<group>"; };
-		4357BA712785A69D0061B58E /* ImageQuizCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQuizCard.swift; sourceTree = "<group>"; };
-		4357BA732785A6A80061B58E /* TextQuizCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextQuizCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,9 +176,7 @@
 		4357BA662785A3D30061B58E /* components */ = {
 			isa = PBXGroup;
 			children = (
-				4357BA592785A2920061B58E /* QuizCard.swift */,
-				4357BA712785A69D0061B58E /* ImageQuizCard.swift */,
-				4357BA732785A6A80061B58E /* TextQuizCard.swift */,
+				4357BA592785A2920061B58E /* OptionCard.swift */,
 				43243F4A2785E99E0012F5A8 /* QuestionPanel.swift */,
 			);
 			path = components;
@@ -263,19 +257,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4357BA702785A6700061B58E /* TextQuestionOption.swift in Sources */,
-				4357BA742785A6A80061B58E /* TextQuizCard.swift in Sources */,
 				4357BA682785A4070061B58E /* QuizQuestion.swift in Sources */,
 				4357BA482785A02F0061B58E /* MainMenuView.swift in Sources */,
 				43243F522785EB230012F5A8 /* QuestionProvider.swift in Sources */,
 				43243F542785EB4F0012F5A8 /* DummyQuestionProvider.swift in Sources */,
 				43243F572785F0680012F5A8 /* QuestionOptionVM.swift in Sources */,
-				4357BA722785A69D0061B58E /* ImageQuizCard.swift in Sources */,
 				43243F4B2785E99E0012F5A8 /* QuestionPanel.swift in Sources */,
 				4357BA572785A15D0061B58E /* SummaryView.swift in Sources */,
 				43243F4F2785EA0C0012F5A8 /* GameState.swift in Sources */,
 				4357BA6E2785A6050061B58E /* ImageQuestionOption.swift in Sources */,
 				4357BA552785A1530061B58E /* GameView.swift in Sources */,
-				4357BA5A2785A2920061B58E /* QuizCard.swift in Sources */,
+				4357BA5A2785A2920061B58E /* OptionCard.swift in Sources */,
 				4357BA462785A02F0061B58E /* QuizGameApp.swift in Sources */,
 				4357BA6A2785A4660061B58E /* QuestionOption.swift in Sources */,
 				4357BA6C2785A4EC0061B58E /* QuizResults.swift in Sources */,

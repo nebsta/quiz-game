@@ -21,7 +21,17 @@ struct GameView: View {
     }
     
     var body: some View {
-        QuestionPanel(gameState.currentQuestion)
+        VStack {
+            QuestionPanel(gameState.currentQuestion)
+            
+            
+            
+            HStack {
+                Button("Skip") {
+                    
+                }
+            }
+        }
     }
 }
 
