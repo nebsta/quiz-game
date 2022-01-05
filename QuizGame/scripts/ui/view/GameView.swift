@@ -20,7 +20,7 @@ struct GameView: View {
     var body: some View {
 
         VStack {
-            QuestionTimer(self.$gameState.questionTimer)
+            QuestionTimer(self.$gameState.questionTimer, onTimerExpired)
                 .frame(maxHeight:80)
             QuestionPanel(gameState, onQuestionAnswered)
                 .padding(.horizontal, 10)
@@ -44,8 +44,16 @@ struct GameView: View {
             return
         }
         
+        if result == .Correct {
+            self.gameState.correctAnswers += 1
+        }
+        
         self.gameState.resetTimer()
         self.gameState.currentQuestionIndex += 1
+    }
+    
+    private func onTimerExpired() {
+        onQuestionAnswered(.Skipped)
     }
     
     private func onLifelineSelected(_ lifeline:Lifeline) {

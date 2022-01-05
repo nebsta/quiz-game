@@ -10,10 +10,12 @@ import SwiftUI
 struct QuestionTimer: View {
     @Binding public var timeRemaining:Int
     
-    let countdownTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    private let onTimerExpired:() -> Void
+    private let countdownTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    public init(_ timeRemaining:Binding<Int>) {
+    public init(_ timeRemaining:Binding<Int>, _ onTimerExpired:@escaping () -> Void) {
         self._timeRemaining = timeRemaining
+        self.onTimerExpired = onTimerExpired
     }
     
     var body: some View {
@@ -26,7 +28,16 @@ struct QuestionTimer: View {
                 .font(.system(size: 30))
                 .bold()
         }.onReceive(countdownTimer) { time in
+            
+            // timer has finished and already triggered callback
+            guard self.timeRemaining != -1 else {
+                return
+            }
+            
+            // the timer has finished
             guard self.timeRemaining > 0 else {
+                self.timeRemaining = -1
+                onTimerExpired()
                 return
             }
             self.timeRemaining -= 1
@@ -36,6 +47,8 @@ struct QuestionTimer: View {
 
 struct QuestionTimer_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionTimer(.constant(20))
+        QuestionTimer(.constant(20)) {
+            
+        }
     }
 }
