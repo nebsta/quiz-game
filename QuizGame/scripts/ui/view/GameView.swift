@@ -20,7 +20,10 @@ struct GameView: View {
     var body: some View {
 
         VStack {
+            QuestionTimer(self.$gameState.questionTimer)
+                .frame(maxHeight:80)
             QuestionPanel(gameState, onQuestionAnswered)
+                .padding(.horizontal, 10)
             LifelinePanel(onLifelineSelected).frame(maxWidth:.infinity, maxHeight: 50)
             
             NavigationLink(destination: SummaryView(), isActive: self.$quizComplete) {EmptyView()}
@@ -41,6 +44,7 @@ struct GameView: View {
             return
         }
         
+        self.gameState.resetTimer()
         self.gameState.currentQuestionIndex += 1
     }
     

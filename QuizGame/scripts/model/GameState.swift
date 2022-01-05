@@ -13,7 +13,8 @@ class GameState : ObservableObject {
     @Published public var currentQuestionIndex:Int = 0
     @Published public var correctAnswers:Int = 0
     @Published public var averageAnswerTime:Float = 0
-    @Published public var questionTimer:Float = 0
+    @Published public var questionTimer:Int = 20
+    @Published public var lifelinesUsed:Lifeline = .None
     
     public func currentQuestion() -> QuizQuestion {
         guard currentQuestionIndex < questions.count else {
@@ -31,11 +32,16 @@ class GameState : ObservableObject {
         self.currentQuestionIndex = 0
         self.correctAnswers = 0
         self.averageAnswerTime = 0
-        self.questionTimer = 0
+        self.questionTimer = 20
+    }
+    
+    public func resetTimer() {
+        self.questionTimer = 20
     }
 }
 
-enum Lifeline {
-    case FiftyFifty
-    case TenSeconds
+enum Lifeline : Int {
+    case None = 0
+    case FiftyFifty = 1
+    case TenSeconds = 2
 }

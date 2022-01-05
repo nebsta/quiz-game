@@ -16,6 +16,8 @@ struct LifelineButton: View {
         self.onTapped = onTapped
         self.lifelineType = lifeline
         switch lifeline {
+            case .None:
+                self.image = "LifelineOne"
             case .FiftyFifty:
                 self.image = "LifelineOne"
             case .TenSeconds:
