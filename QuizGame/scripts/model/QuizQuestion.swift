@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QuizQuestion {
+class QuizQuestion : ObservableObject {
     public let text:String;
     public let answerIndex:Int;
     public let options:[QuestionOption];

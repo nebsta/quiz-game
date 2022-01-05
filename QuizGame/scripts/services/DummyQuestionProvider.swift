@@ -14,18 +14,25 @@ class DummyQuestionProvider : QuestionProvider {
                      1,
                      [ImageQuestionOption("Luigi"),ImageQuestionOption("Mario"),ImageQuestionOption("Peach"), ImageQuestionOption("Bowser")]),
         QuizQuestion("Which one of these is Bowser?",
-                     3,
-                     [ImageQuestionOption("Luigi"),ImageQuestionOption("Mario"),ImageQuestionOption("Peach"), ImageQuestionOption("Bowser")]),
+                     2,
+                     [ImageQuestionOption("Peach"),ImageQuestionOption("Luigi"),ImageQuestionOption("Bowser"), ImageQuestionOption("Mario")]),
         QuizQuestion("What dinosaur does Mario frequently ride on?",
                      0,
                      [TextQuestionOption("Yoshi"),TextQuestionOption("Birdo"),TextQuestionOption("Ridley"), TextQuestionOption("Bowser")])
     ]
     
-    func getQuizQuestion() -> QuizQuestion {
+    public func getQuizQuestion() -> QuizQuestion {
         if let question = questions.randomElement() {
             return question
         }
         return QuizQuestion()
     }
     
+    public func getQuizQuestions(_ amount:Int) -> [QuizQuestion] {
+        guard amount < questions.count else {
+            return questions
+        }
+        
+        return questions[randomPick: amount]
+    }
 }

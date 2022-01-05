@@ -8,30 +8,31 @@
 import SwiftUI
 
 struct GameView: View {
-    
-    @State var gameState:GameState;
-    
+    @StateObject var gameState:GameState = GameState();
+
     private let questionProvider:QuestionProvider
     
     public init(_ questionProvider:QuestionProvider) {
         self.questionProvider = questionProvider
-        
-        let firstQuestion:QuizQuestion = self.questionProvider.getQuizQuestion()
-        self._gameState = State(initialValue:GameState(firstQuestion))
     }
     
     var body: some View {
+
         VStack {
-            QuestionPanel(gameState.currentQuestion)
+            QuestionPanel(gameState, onNextQuestion)
             
             
-            
-            HStack {
-                Button("Skip") {
-                    
-                }
-            }
-        }
+        }.onAppear(perform: onViewAppear)
+    }
+    
+    private func onViewAppear() {
+        print("setup")
+        let questions:[QuizQuestion] = self.questionProvider.getQuizQuestions(2)
+        gameState.reset(questions)
+    }
+    
+    private func onNextQuestion() {
+        
     }
 }
 

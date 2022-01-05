@@ -18,16 +18,19 @@ struct MainMenuView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
                 Text("Quiz Game")
                     .font(.system(size: 50))
                 
-                NavigationLink(destination: GameView(self.questionProvider)) {
+                NavigationLink(destination: buildGameView()) {
                     Text("Play")
                 }
                 .buttonStyle(.bordered)
             }
         }
+    }
+    
+    private func buildGameView() -> some View  {
+        return GameView(self.questionProvider)
     }
 }
 

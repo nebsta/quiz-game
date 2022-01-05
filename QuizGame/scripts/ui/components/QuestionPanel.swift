@@ -8,28 +8,39 @@
 import SwiftUI
 
 struct QuestionPanel: View {
-    @State private var question:QuizQuestion
+    @ObservedObject private var gameState:GameState
+    @State private var higlightedIndex:Int
+    
+    private let onNextQuestion:() -> Void
     
     private let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
-    public init(_ question:QuizQuestion) {
-        self._question = State(initialValue: question)
+    public init(_ gameState:GameState, _ onNextQuestion:@escaping () -> Void) {
+        self.gameState = gameState
+        self.onNextQuestion = onNextQuestion
+        self.higlightedIndex = -1
     }
     
     var body: some View {
         VStack {
-            Text(self.question.text)
+            let currentQuestion:QuizQuestion = self.gameState.currentQuestion()
+            Text(currentQuestion.text)
+                .multilineTextAlignment(.center)
             LazyVGrid(columns: columns, spacing: 20) {
-                ForEach(self.question.options.indices) { index in
-                    let option = self.question.options[index]
-                    OptionCard {
+                ForEach(Array(currentQuestion.options.enumerated()), id: \.offset) { index, option in
+                    OptionCard(index == currentQuestion.answerIndex, self.higlightedIndex == index) {
                         buildCardContent(option)
                     }.onTapGesture {
                         onOptionSelected(index)
                     }
+                }
+            }
+            HStack {
+                Button("Skip") {
+                    onSkipQuestion()
                 }
             }
         }
@@ -47,6 +58,10 @@ struct QuestionPanel: View {
     func onOptionSelected(_ index:Int) {
         print("index: \(index)");
     }
+    
+    func onSkipQuestion() {
+        self.onNextQuestion()
+    }
 }
 
 struct QuestionPanel_Previews: PreviewProvider {
@@ -55,8 +70,12 @@ struct QuestionPanel_Previews: PreviewProvider {
 //                                   1,
 //                                   [ImageQuestionOption("Luigi"),ImageQuestionOption("Mario"),ImageQuestionOption("Peach"), ImageQuestionOption("Bowser")]))
         
-        QuestionPanel(        QuizQuestion("What dinosaur does Mario frequently ride on?",
-                                           0,
-                                           [TextQuestionOption("Yoshi"),TextQuestionOption("Birdo"),TextQuestionOption("Ridley"), TextQuestionOption("Bowser")]))
+//        QuestionPanel(QuizQuestion("What dinosaur does Mario frequently ride on?",
+//                       0,
+//                                   [TextQuestionOption("Yoshi"),TextQuestionOption("Birdo"),TextQuestionOption("Ridley"), TextQuestionOption("Bowser")])) {
+//            
+//        }
+        
+        Text("Test")
     }
 }

@@ -9,4 +9,5 @@ import Foundation
 
 protocol QuestionProvider {
     func getQuizQuestion() -> QuizQuestion
+    func getQuizQuestions(_ amount:Int) -> [QuizQuestion]
 }
