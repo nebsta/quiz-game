@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct LifelineButton: View {
+    private let used:Bool
     private let image:String
     private let lifelineType:Lifeline
     private let onTapped:(Lifeline) -> Void
     
-    public init(_ lifeline:Lifeline, _ onTapped:@escaping (Lifeline) -> Void) {
+    public init(_ lifeline:Lifeline, _ used:Bool, _ onTapped:@escaping (Lifeline) -> Void) {
         self.onTapped = onTapped
         self.lifelineType = lifeline
+        self.used = used
         switch lifeline {
-            case .None:
-                self.image = "LifelineOne"
             case .FiftyFifty:
                 self.image = "LifelineOne"
             case .TenSeconds:
                 self.image = "LifelineTwo"
+            default:
+                self.image = "LifelineOne"
         }
     }
     
@@ -29,17 +31,24 @@ struct LifelineButton: View {
         Button {
             onTapped(self.lifelineType)
         } label: {
-            Image(self.image).resizable().scaledToFit()
+            ZStack {
+                
+                Image(self.image).resizable().scaledToFit()
+                if used {
+                    Image("Cross").resizable().scaledToFit().opacity(0.8)
+                }
+            }
         }
         .frame(maxHeight:.infinity)
         .aspectRatio(1, contentMode: .fit)
         .padding(2)
+        
     }
 }
 
 struct LifelineButton_Previews: PreviewProvider {
     static var previews: some View {
-        LifelineButton(.FiftyFifty) { _ in
+        LifelineButton(.FiftyFifty, true) { _ in
             
         }
     }

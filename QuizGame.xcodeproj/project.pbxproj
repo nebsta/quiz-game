@@ -33,6 +33,8 @@
 		4371D21B278635D100C6FE01 /* LifelineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371D21A278635D100C6FE01 /* LifelineButton.swift */; };
 		4371D21D278639C300C6FE01 /* Clock.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4371D21C278639C300C6FE01 /* Clock.jpeg */; };
 		4371D21F278639D400C6FE01 /* QuestionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371D21E278639D400C6FE01 /* QuestionTimer.swift */; };
+		4371D221278641BA00C6FE01 /* Cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 4371D220278641BA00C6FE01 /* Cross.png */; };
+		4371D2232787686F00C6FE01 /* Lifeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371D2222787686F00C6FE01 /* Lifeline.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		4371D21A278635D100C6FE01 /* LifelineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifelineButton.swift; sourceTree = "<group>"; };
 		4371D21C278639C300C6FE01 /* Clock.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Clock.jpeg; sourceTree = "<group>"; };
 		4371D21E278639D400C6FE01 /* QuestionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTimer.swift; sourceTree = "<group>"; };
+		4371D220278641BA00C6FE01 /* Cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cross.png; sourceTree = "<group>"; };
+		4371D2222787686F00C6FE01 /* Lifeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lifeline.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 				4357BA6D2785A6050061B58E /* ImageQuestionOption.swift */,
 				4357BA6F2785A6700061B58E /* TextQuestionOption.swift */,
 				43243F4E2785EA0C0012F5A8 /* GameState.swift */,
+				4371D2222787686F00C6FE01 /* Lifeline.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 		4357BA5C2785A3610061B58E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4371D220278641BA00C6FE01 /* Cross.png */,
 				4371D21C278639C300C6FE01 /* Clock.jpeg */,
 				4371D2162786337F00C6FE01 /* LifelineOne.png */,
 				4371D2172786337F00C6FE01 /* LifelineTwo.jpeg */,
@@ -257,6 +263,7 @@
 			files = (
 				4357BA622785A3B60061B58E /* Mario.png in Resources */,
 				4357BA4D2785A0300061B58E /* Preview Assets.xcassets in Resources */,
+				4371D221278641BA00C6FE01 /* Cross.png in Resources */,
 				4357BA4A2785A0300061B58E /* Assets.xcassets in Resources */,
 				4371D21D278639C300C6FE01 /* Clock.jpeg in Resources */,
 				4357BA642785A3B60061B58E /* Peach.png in Resources */,
@@ -287,6 +294,7 @@
 				4357BA552785A1530061B58E /* GameView.swift in Sources */,
 				4357BA5A2785A2920061B58E /* OptionCard.swift in Sources */,
 				4357BA462785A02F0061B58E /* QuizGameApp.swift in Sources */,
+				4371D2232787686F00C6FE01 /* Lifeline.swift in Sources */,
 				4357BA6A2785A4660061B58E /* QuestionOption.swift in Sources */,
 				4371D21B278635D100C6FE01 /* LifelineButton.swift in Sources */,
 				43243F5A27861A280012F5A8 /* ArrayExtensions.swift in Sources */,

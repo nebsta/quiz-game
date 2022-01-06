@@ -22,9 +22,9 @@ struct GameView: View {
         VStack {
             QuestionTimer(self.$gameState.questionTimer, onTimerExpired)
                 .frame(maxHeight:80)
-            QuestionPanel(gameState, onQuestionAnswered)
+            QuestionPanel(self.gameState, onQuestionAnswered)
                 .padding(.horizontal, 10)
-            LifelinePanel(onLifelineSelected).frame(maxWidth:.infinity, maxHeight: 50)
+            LifelinePanel(self.$gameState.lifelinesUsed, onLifelineSelected).frame(maxWidth:.infinity, maxHeight: 50)
             
             NavigationLink(destination: SummaryView(), isActive: self.$quizComplete) {EmptyView()}
             
@@ -57,7 +57,9 @@ struct GameView: View {
     }
     
     private func onLifelineSelected(_ lifeline:Lifeline) {
-        
+        if lifeline == .TenSeconds {
+            self.gameState.questionTimer += 10
+        }
     }
 }
 

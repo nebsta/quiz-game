@@ -39,9 +39,3 @@ class GameState : ObservableObject {
         self.questionTimer = 5
     }
 }
-
-enum Lifeline : Int {
-    case None = 0
-    case FiftyFifty = 1
-    case TenSeconds = 2
-}
