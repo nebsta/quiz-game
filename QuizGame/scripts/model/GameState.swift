@@ -9,12 +9,15 @@ import Foundation
 import SwiftUI
 
 class GameState : ObservableObject {
+    public static let OptionCount:Int = 4
+    public static let QuestionTime:Int = 10
+    
     @Published public var questions:[QuizQuestion] = []
-    @Published public var optionStates:[OptionState] = Array(repeating: .Idle, count: 4)
+    @Published public var optionStates:[OptionState] = Array(repeating: .Idle, count: OptionCount)
     @Published public var currentQuestionIndex:Int = 0
     @Published public var correctAnswers:Int = 0
     @Published public var averageAnswerTime:Float = 0
-    @Published public var questionTimer:Int = 5
+    @Published public var questionTimer:Int = QuestionTime
     @Published public var lifelinesUsed:Lifeline = .None
     
     public func currentQuestion() -> QuizQuestion {
@@ -30,15 +33,17 @@ class GameState : ObservableObject {
     
     public func reset(_ questions:[QuizQuestion]) {
         self.questions = questions
-        self.optionStates = Array(repeating: .Idle, count: 4)
+        self.optionStates = Array(repeating: .Idle, count: GameState.OptionCount)
         self.currentQuestionIndex = 0
         self.correctAnswers = 0
         self.averageAnswerTime = 0
-        self.questionTimer = 5
+        self.questionTimer = GameState.QuestionTime
     }
     
-    public func resetTimer() {
-        self.questionTimer = 5
+    public func nextQuestion() {
+        self.currentQuestionIndex += 1
+        self.questionTimer = GameState.QuestionTime
+        self.optionStates = Array(repeating: .Idle, count: GameState.OptionCount)
     }
 }
 

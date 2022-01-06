@@ -37,19 +37,22 @@ struct GameView: View {
     }
     
     private func onQuestionAnswered(_ optionIndex:Int) {
-        
-        // check if we've reached the end of the quiz
-        guard self.gameState.currentQuestionIndex + 1 < self.gameState.questions.count else {
-            self.quizComplete = true
-            return
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            
+            // check if we've reached the end of the quiz
+            guard self.gameState.currentQuestionIndex + 1 < self.gameState.questions.count else {
+                self.quizComplete = true
+                return
+            }
+            
+            // record that a correct answer has been given
+            if optionIndex == self.gameState.currentQuestion().answerIndex {
+                self.gameState.correctAnswers += 1
+            }
+            
+            // reset timer and continue quiz
+            self.gameState.nextQuestion()
         }
-        
-        if optionIndex == self.gameState.currentQuestion().answerIndex {
-            self.gameState.correctAnswers += 1
-        }
-        
-        self.gameState.resetTimer()
-        self.gameState.currentQuestionIndex += 1
     }
     
     private func onTimerExpired() {
@@ -60,7 +63,11 @@ struct GameView: View {
         if lifeline == .TenSeconds {
             self.gameState.questionTimer += 10
         } else if lifeline == .FiftyFifty {
-            
+            let incorrectAnswers:[Int] = self.gameState.currentQuestion().incorrectAnswers()
+            let highlighted:[Int] = incorrectAnswers[randomPick: 2]
+            for i in highlighted {
+                self.gameState.optionStates[i] = .Highlighted
+            }
         }
     }
 }
