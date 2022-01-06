@@ -10,6 +10,7 @@ import SwiftUI
 
 class GameState : ObservableObject {
     @Published public var questions:[QuizQuestion] = []
+    @Published public var optionStates:[OptionState] = Array(repeating: .Idle, count: 4)
     @Published public var currentQuestionIndex:Int = 0
     @Published public var correctAnswers:Int = 0
     @Published public var averageAnswerTime:Float = 0
@@ -29,6 +30,7 @@ class GameState : ObservableObject {
     
     public func reset(_ questions:[QuizQuestion]) {
         self.questions = questions
+        self.optionStates = Array(repeating: .Idle, count: 4)
         self.currentQuestionIndex = 0
         self.correctAnswers = 0
         self.averageAnswerTime = 0
@@ -38,4 +40,9 @@ class GameState : ObservableObject {
     public func resetTimer() {
         self.questionTimer = 5
     }
+}
+
+enum OptionState {
+    case Idle
+    case Highlighted
 }

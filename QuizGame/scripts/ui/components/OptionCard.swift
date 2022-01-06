@@ -11,7 +11,7 @@ struct OptionCard<T> : View where T : View  {
     private let content : T
     private let isCorretAnswer:Bool
     
-    private let highlight:Bool
+    private let state:OptionState
     
     var body: some View {
         ZStack {
@@ -20,23 +20,23 @@ struct OptionCard<T> : View where T : View  {
         .frame(minWidth: 0, maxWidth: .infinity)
         .aspectRatio(1, contentMode: .fit)
         .border(Color.black, width:5)
-        .background(highlight ? highlightColor() : .white)
+        .background(self.state == .Highlighted ? highlightColor() : .white)
     }
     
     private func highlightColor() -> Color {
         return isCorretAnswer ? .green : .red
     }
     
-    public init(_ isCorrectAnswer:Bool, _ highlight:Bool, @ViewBuilder _ content: () -> T) {
+    public init(_ isCorrectAnswer:Bool, _ state:OptionState, @ViewBuilder _ content: () -> T) {
         self.content = content()
-        self.highlight = highlight
+        self.state = state
         self.isCorretAnswer = isCorrectAnswer
     }
 }
 
 struct OptionCard_Previews: PreviewProvider {
     static var previews: some View {
-        OptionCard (true, false) {
+        OptionCard (true, .Idle) {
 //            Image("Mario").resizable().scaledToFit()
             Text("helo there helo there helo there helo there helo there")
         }

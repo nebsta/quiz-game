@@ -36,7 +36,7 @@ struct GameView: View {
         gameState.reset(questions)
     }
     
-    private func onQuestionAnswered(_ result:QuestionResult) {
+    private func onQuestionAnswered(_ optionIndex:Int) {
         
         // check if we've reached the end of the quiz
         guard self.gameState.currentQuestionIndex + 1 < self.gameState.questions.count else {
@@ -44,7 +44,7 @@ struct GameView: View {
             return
         }
         
-        if result == .Correct {
+        if optionIndex == self.gameState.currentQuestion().answerIndex {
             self.gameState.correctAnswers += 1
         }
         
@@ -53,12 +53,14 @@ struct GameView: View {
     }
     
     private func onTimerExpired() {
-        onQuestionAnswered(.Skipped)
+        onQuestionAnswered(-1)
     }
     
     private func onLifelineSelected(_ lifeline:Lifeline) {
         if lifeline == .TenSeconds {
             self.gameState.questionTimer += 10
+        } else if lifeline == .FiftyFifty {
+            
         }
     }
 }

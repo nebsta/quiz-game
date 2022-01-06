@@ -9,19 +9,17 @@ import SwiftUI
 
 struct QuestionPanel: View {
     @ObservedObject private var gameState:GameState
-    @State private var higlightedIndex:Int
     
-    private let onQuestionAnswered:(QuestionResult) -> Void
+    private let onQuestionAnswered:(Int) -> Void
     
     private let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
-    public init(_ gameState:GameState, _ onQuestionAnswered:@escaping (QuestionResult) -> Void) {
+    public init(_ gameState:GameState, _ onQuestionAnswered:@escaping (Int) -> Void) {
         self.gameState = gameState
         self.onQuestionAnswered = onQuestionAnswered
-        self.higlightedIndex = -1
     }
     
     var body: some View {
@@ -32,17 +30,18 @@ struct QuestionPanel: View {
                 .multilineTextAlignment(.center)
             LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(Array(currentQuestion.options.enumerated()), id: \.offset) { index, option in
-                    let isCorrect:Bool = self.higlightedIndex == index
-                    OptionCard(index == currentQuestion.answerIndex, isCorrect) {
+                    
+                    let state:OptionState = self.gameState.optionStates[index]
+                    OptionCard(index == currentQuestion.answerIndex, state) {
                         buildCardContent(option)
                     }.onTapGesture {
-                        onOptionSelected(index, isCorrect)
+                        onOptionSelected(index)
                     }
                 }
             }
             HStack {
                 Button("Skip") {
-                    onQuestionAnswered(.Skipped)
+                    onQuestionAnswered(-1)
                 }
             }
         }
@@ -57,9 +56,9 @@ struct QuestionPanel: View {
         }
     }
     
-    func onOptionSelected(_ index:Int, _ isCorrect:Bool) {
-        self.higlightedIndex = index
-        self.onQuestionAnswered(isCorrect ? .Correct : .Incorrect)
+    func onOptionSelected(_ index:Int) {
+        self.gameState.optionStates[index] = .Highlighted
+        self.onQuestionAnswered(index)
     }
 }
 
@@ -69,11 +68,4 @@ struct QuestionPanel_Previews: PreviewProvider {
             
         }
     }
-}
-
-
-enum QuestionResult {
-    case Incorrect
-    case Correct
-    case Skipped
 }
