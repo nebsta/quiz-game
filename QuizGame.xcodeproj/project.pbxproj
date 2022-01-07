@@ -35,6 +35,9 @@
 		4371D21F278639D400C6FE01 /* QuestionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371D21E278639D400C6FE01 /* QuestionTimer.swift */; };
 		4371D221278641BA00C6FE01 /* Cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 4371D220278641BA00C6FE01 /* Cross.png */; };
 		4371D2232787686F00C6FE01 /* Lifeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371D2222787686F00C6FE01 /* Lifeline.swift */; };
+		43FAACE92788611D00B300BF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FAACE82788611D00B300BF /* RootView.swift */; };
+		43FAACEB278861EC00B300BF /* ViewRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FAACEA278861EC00B300BF /* ViewRoute.swift */; };
+		43FAACED278862C600B300BF /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FAACEC278862C600B300BF /* ViewRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +70,9 @@
 		4371D21E278639D400C6FE01 /* QuestionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTimer.swift; sourceTree = "<group>"; };
 		4371D220278641BA00C6FE01 /* Cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cross.png; sourceTree = "<group>"; };
 		4371D2222787686F00C6FE01 /* Lifeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lifeline.swift; sourceTree = "<group>"; };
+		43FAACE82788611D00B300BF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		43FAACEA278861EC00B300BF /* ViewRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRoute.swift; sourceTree = "<group>"; };
+		43FAACEC278862C600B300BF /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,7 @@
 				4357BA6F2785A6700061B58E /* TextQuestionOption.swift */,
 				43243F4E2785EA0C0012F5A8 /* GameState.swift */,
 				4371D2222787686F00C6FE01 /* Lifeline.swift */,
+				43FAACEA278861EC00B300BF /* ViewRoute.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -187,6 +194,8 @@
 				4357BA472785A02F0061B58E /* MainMenuView.swift */,
 				4357BA542785A1530061B58E /* GameView.swift */,
 				4357BA562785A15D0061B58E /* SummaryView.swift */,
+				43FAACE82788611D00B300BF /* RootView.swift */,
+				43FAACEC278862C600B300BF /* ViewRouter.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -287,6 +296,7 @@
 				43243F522785EB230012F5A8 /* QuestionProvider.swift in Sources */,
 				43243F542785EB4F0012F5A8 /* DummyQuestionProvider.swift in Sources */,
 				43243F4B2785E99E0012F5A8 /* QuestionPanel.swift in Sources */,
+				43FAACE92788611D00B300BF /* RootView.swift in Sources */,
 				4371D2112786322F00C6FE01 /* LifelinePanel.swift in Sources */,
 				4357BA572785A15D0061B58E /* SummaryView.swift in Sources */,
 				43243F4F2785EA0C0012F5A8 /* GameState.swift in Sources */,
@@ -295,7 +305,9 @@
 				4357BA5A2785A2920061B58E /* OptionCard.swift in Sources */,
 				4357BA462785A02F0061B58E /* QuizGameApp.swift in Sources */,
 				4371D2232787686F00C6FE01 /* Lifeline.swift in Sources */,
+				43FAACED278862C600B300BF /* ViewRouter.swift in Sources */,
 				4357BA6A2785A4660061B58E /* QuestionOption.swift in Sources */,
+				43FAACEB278861EC00B300BF /* ViewRoute.swift in Sources */,
 				4371D21B278635D100C6FE01 /* LifelineButton.swift in Sources */,
 				43243F5A27861A280012F5A8 /* ArrayExtensions.swift in Sources */,
 				4371D21F278639D400C6FE01 /* QuestionTimer.swift in Sources */,

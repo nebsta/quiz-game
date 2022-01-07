@@ -9,11 +9,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     
-    private let questionProvider:QuestionProvider
-    
-    public init(_ questionProvider:QuestionProvider) {
-        self.questionProvider = questionProvider
-    }
+    @EnvironmentObject private var viewRouter:ViewRouter
     
     var body: some View {
         NavigationView {
@@ -21,21 +17,17 @@ struct MainMenuView: View {
                 Text("Quiz Game")
                     .font(.system(size: 50))
                 
-                NavigationLink(destination: buildGameView()) {
-                    Text("Play")
+                Button("Play") {
+                    viewRouter.routeTo(.Game)
                 }
                 .buttonStyle(.bordered)
             }
         }
     }
-    
-    private func buildGameView() -> some View  {
-        return GameView(self.questionProvider)
-    }
 }
 
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MainMenuView(DummyQuestionProvider())
+        MainMenuView()
     }
 }

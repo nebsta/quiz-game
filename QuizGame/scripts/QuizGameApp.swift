@@ -10,15 +10,9 @@ import SwiftUI
 @main
 struct QuizGameApp: App {
     
-    private let questionProvider:QuestionProvider
-    
     var body: some Scene {
         WindowGroup {
-            MainMenuView(self.questionProvider)
+            RootView().environmentObject(ViewRouter())
         }
-    }
-    
-    init() {
-        self.questionProvider = DummyQuestionProvider()
     }
 }

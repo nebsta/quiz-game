@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct GameView: View {
-    @StateObject var gameState:GameState = GameState();
-    @State var quizComplete:Bool = false
+    @EnvironmentObject private var viewRouter:ViewRouter
+    
+    @StateObject private var gameState:GameState = GameState();
 
     private let questionProvider:QuestionProvider
     
@@ -26,8 +27,6 @@ struct GameView: View {
                 .padding(.horizontal, 10)
             LifelinePanel(self.$gameState.lifelinesUsed, onLifelineSelected).frame(maxWidth:.infinity, maxHeight: 50)
             
-            NavigationLink(destination: SummaryView(), isActive: self.$quizComplete) {EmptyView()}
-            
         }.onAppear(perform: onViewAppear)
     }
     
@@ -41,7 +40,7 @@ struct GameView: View {
             
             // check if we've reached the end of the quiz
             guard self.gameState.currentQuestionIndex + 1 < self.gameState.questions.count else {
-                self.quizComplete = true
+                self.viewRouter.routeTo(.Summary)
                 return
             }
             
