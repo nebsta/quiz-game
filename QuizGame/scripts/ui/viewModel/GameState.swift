@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 class GameState : ObservableObject {
-    public static let QuestionTime:Int = 10
     
     @Published public var questions:[QuizQuestionState] = []
     
     @Published public var currentQuestionIndex:Int = 0
-    @Published public var questionTimer:Int = QuestionTime
+    
+    @Published public var timer:TimerState = TimerState()
     
     @Published public var lifelinesUsed:Lifeline = .None
     
@@ -36,7 +36,7 @@ class GameState : ObservableObject {
     public func reset(_ questions:[QuizQuestion]) {
         self.currentQuestionIndex = 0
         self.summary.reset()
-        self.questionTimer = GameState.QuestionTime
+        self.timer.reset()
         
         for question in questions {
             self.questions.append(QuizQuestionState(question))
@@ -46,7 +46,7 @@ class GameState : ObservableObject {
     public func nextQuestion() {
         self.currentQuestionIndex += 1
         
-        self.questionTimer = GameState.QuestionTime
+        self.timer.reset()
     }
 }
 

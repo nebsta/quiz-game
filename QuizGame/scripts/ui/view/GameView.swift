@@ -21,8 +21,8 @@ struct GameView: View {
     var body: some View {
 
         VStack {
-//            QuestionTimer(self.$gameState.questionTimer, onTimerExpired)
-//                .frame(maxHeight:80)
+            QuestionTimer(self.$gameState.timer.currentTimer, onTimerExpired)
+                .frame(maxHeight:80)
             QuestionPanel(self.gameState.currentQuestion(), onQuestionAnswered)
                 .padding(.horizontal, 10)
             LifelinePanel(self.$gameState.lifelinesUsed, onLifelineSelected).frame(maxWidth:.infinity, maxHeight: 50)
@@ -60,7 +60,7 @@ struct GameView: View {
     
     private func onLifelineSelected(_ lifeline:Lifeline) {
         if lifeline == .TenSeconds {
-            self.gameState.questionTimer += 10
+            self.gameState.timer.currentTimer += 10
         } else if lifeline == .FiftyFifty {
             let incorrectAnswers:[Int] = self.gameState.currentQuestion().incorrectAnswers()
             let highlighted:[Int] = incorrectAnswers[randomPick: 2]

@@ -42,6 +42,7 @@
 		43FAACF427886AF000B300BF /* SummaryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FAACF327886AF000B300BF /* SummaryState.swift */; };
 		43FAACF627886D3C00B300BF /* ImageQuestionOptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FAACF527886D3C00B300BF /* ImageQuestionOptionState.swift */; };
 		43FAACF827886D4500B300BF /* TextQuestionOptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FAACF727886D4500B300BF /* TextQuestionOptionState.swift */; };
+		43FAACFA2788770700B300BF /* TimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FAACF92788770700B300BF /* TimerState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		43FAACF327886AF000B300BF /* SummaryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryState.swift; sourceTree = "<group>"; };
 		43FAACF527886D3C00B300BF /* ImageQuestionOptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQuestionOptionState.swift; sourceTree = "<group>"; };
 		43FAACF727886D4500B300BF /* TextQuestionOptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextQuestionOptionState.swift; sourceTree = "<group>"; };
+		43FAACF92788770700B300BF /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,11 +212,11 @@
 		4357BA662785A3D30061B58E /* components */ = {
 			isa = PBXGroup;
 			children = (
+				4371D21E278639D400C6FE01 /* QuestionTimer.swift */,
 				43243F4A2785E99E0012F5A8 /* QuestionPanel.swift */,
 				4357BA592785A2920061B58E /* OptionCard.swift */,
 				4371D2102786322F00C6FE01 /* LifelinePanel.swift */,
 				4371D21A278635D100C6FE01 /* LifelineButton.swift */,
-				4371D21E278639D400C6FE01 /* QuestionTimer.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -228,6 +230,7 @@
 				43FAACF527886D3C00B300BF /* ImageQuestionOptionState.swift */,
 				43FAACF727886D4500B300BF /* TextQuestionOptionState.swift */,
 				43FAACF327886AF000B300BF /* SummaryState.swift */,
+				43FAACF92788770700B300BF /* TimerState.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				4357BA482785A02F0061B58E /* MainMenuView.swift in Sources */,
 				43243F522785EB230012F5A8 /* QuestionProvider.swift in Sources */,
 				43243F542785EB4F0012F5A8 /* DummyQuestionProvider.swift in Sources */,
+				43FAACFA2788770700B300BF /* TimerState.swift in Sources */,
 				43243F4B2785E99E0012F5A8 /* QuestionPanel.swift in Sources */,
 				43FAACE92788611D00B300BF /* RootView.swift in Sources */,
 				4371D2112786322F00C6FE01 /* LifelinePanel.swift in Sources */,
