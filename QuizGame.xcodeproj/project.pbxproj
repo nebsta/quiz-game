@@ -151,7 +151,7 @@
 		4357BA532785A1430061B58E /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				43FAACEE2788678200B300BF /* viewModel */,
+				43FAACEE2788678200B300BF /* state */,
 				4357BA662785A3D30061B58E /* components */,
 				4357BA652785A3CF0061B58E /* view */,
 			);
@@ -221,7 +221,7 @@
 			path = components;
 			sourceTree = "<group>";
 		};
-		43FAACEE2788678200B300BF /* viewModel */ = {
+		43FAACEE2788678200B300BF /* state */ = {
 			isa = PBXGroup;
 			children = (
 				43243F4E2785EA0C0012F5A8 /* GameState.swift */,
@@ -232,7 +232,7 @@
 				43FAACF327886AF000B300BF /* SummaryState.swift */,
 				43FAACF92788770700B300BF /* TimerState.swift */,
 			);
-			path = viewModel;
+			path = state;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
