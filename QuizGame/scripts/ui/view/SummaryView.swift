@@ -23,8 +23,8 @@ struct SummaryView: View {
                 .bold()
                 .padding()
             Text("Total Questions: \(self.gameState.questions.count)")
-            Text("Correct Answers: \(self.gameState.correctAnswers)")
-            Text("Average Answer Time: \(String(format:"%.2f",self.gameState.averageAnswerTime))s")
+            Text("Correct Answers: \(self.gameState.summary.correctAnswers)")
+            Text("Average Answer Time: \(String(format:"%.2f",self.gameState.summary.averageAnswerTime))s")
             
             HStack {
                 Button("Retry", action: onRetryQuiz)

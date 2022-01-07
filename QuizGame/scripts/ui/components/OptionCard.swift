@@ -7,38 +7,34 @@
 
 import SwiftUI
 
-struct OptionCard<T> : View where T : View  {
-    private let content : T
-    private let isCorretAnswer:Bool
-    
-    private let state:OptionState
+struct OptionCard : View  {
+    @ObservedObject private var option:QuestionOptionState
     
     var body: some View {
         ZStack {
-            content.padding()
+            if let imageOption = option as? ImageQuestionOptionState {
+                Image(imageOption.image).resizable().scaledToFit()
+            } else if let textOption = option as? TextQuestionOptionState {
+                Text(textOption.text)
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity)
         .aspectRatio(1, contentMode: .fit)
         .border(Color.black, width:5)
-        .background(self.state == .Highlighted ? highlightColor() : .white)
+        .background(self.option.state == .Highlighted ? highlightColor() : .white)
     }
     
     private func highlightColor() -> Color {
-        return isCorretAnswer ? .green : .red
+        return self.option.isCorrect ? .green : .red
     }
     
-    public init(_ isCorrectAnswer:Bool, _ state:OptionState, @ViewBuilder _ content: () -> T) {
-        self.content = content()
-        self.state = state
-        self.isCorretAnswer = isCorrectAnswer
+    public init(_ option:QuestionOptionState) {
+        self.option = option
     }
 }
 
 struct OptionCard_Previews: PreviewProvider {
     static var previews: some View {
-        OptionCard (true, .Idle) {
-//            Image("Mario").resizable().scaledToFit()
-            Text("helo there helo there helo there helo there helo there")
-        }
+        OptionCard(ImageQuestionOptionState(ImageQuestionOption("Bowser"), true))
     }
 }

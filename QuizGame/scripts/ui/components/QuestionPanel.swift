@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuestionPanel: View {
-    @ObservedObject private var gameState:GameState
+    @ObservedObject private var question:QuizQuestionState
     
     private let onQuestionAnswered:(Int) -> Void
     
@@ -17,26 +17,20 @@ struct QuestionPanel: View {
         GridItem(.flexible())
     ]
     
-    public init(_ gameState:GameState, _ onQuestionAnswered:@escaping (Int) -> Void) {
-        self.gameState = gameState
+    public init(_ question:QuizQuestionState, _ onQuestionAnswered:@escaping (Int) -> Void) {
+        self.question = question
         self.onQuestionAnswered = onQuestionAnswered
     }
     
     var body: some View {
         VStack {
-            let currentQuestion:QuizQuestion = self.gameState.currentQuestion()
-            
-            Text(currentQuestion.text)
+            Text(self.question.text)
                 .multilineTextAlignment(.center)
             LazyVGrid(columns: columns, spacing: 20) {
-                ForEach(Array(currentQuestion.options.enumerated()), id: \.offset) { index, option in
+                ForEach(Array(self.question.options.enumerated()), id: \.offset) { index, option in
                     
-                    let state:OptionState = self.gameState.optionStates[index]
-                    OptionCard(index == currentQuestion.answerIndex, state) {
-                        buildCardContent(option)
-                    }.onTapGesture {
-                        onOptionSelected(index)
-                    }
+                    OptionCard(self.question.options[index])
+                        .onTapGesture { onOptionSelected(index) }
                 }
             }
             HStack {
@@ -47,24 +41,15 @@ struct QuestionPanel: View {
         }
     }
     
-    @ViewBuilder
-    private func buildCardContent(_ option:QuestionOption) -> some View {
-        if let imageOption = option as? ImageQuestionOption {
-            Image(imageOption.image).resizable().scaledToFit()
-        } else if let textOption = option as? TextQuestionOption {
-            Text(textOption.text)
-        }
-    }
-    
     func onOptionSelected(_ index:Int) {
-        self.gameState.optionStates[index] = .Highlighted
+        self.question.options[index].state = .Highlighted
         self.onQuestionAnswered(index)
     }
 }
 
 struct QuestionPanel_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionPanel(GameState(DummyQuestionProvider().getQuizQuestions(2))) { _ in
+        QuestionPanel(QuizQuestionState(QuizQuestion("Test", 0, []))) { _ in
             
         }
     }

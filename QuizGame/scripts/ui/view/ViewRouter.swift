@@ -16,6 +16,14 @@ class ViewRouter : ObservableObject {
     }
     
     public func routeTo(_ route:ViewRoute) {
-        self.currentRoute = route
+        withAnimation (.easeInOut) {
+            self.currentRoute = route
+        }
     }
+}
+
+enum ViewRoute {
+    case MainMenu
+    case Game
+    case Summary
 }

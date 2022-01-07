@@ -21,9 +21,9 @@ struct GameView: View {
     var body: some View {
 
         VStack {
-            QuestionTimer(self.$gameState.questionTimer, onTimerExpired)
-                .frame(maxHeight:80)
-            QuestionPanel(self.gameState, onQuestionAnswered)
+//            QuestionTimer(self.$gameState.questionTimer, onTimerExpired)
+//                .frame(maxHeight:80)
+            QuestionPanel(self.gameState.currentQuestion(), onQuestionAnswered)
                 .padding(.horizontal, 10)
             LifelinePanel(self.$gameState.lifelinesUsed, onLifelineSelected).frame(maxWidth:.infinity, maxHeight: 50)
             
@@ -46,7 +46,7 @@ struct GameView: View {
             
             // record that a correct answer has been given
             if optionIndex == self.gameState.currentQuestion().answerIndex {
-                self.gameState.correctAnswers += 1
+                self.gameState.summary.correctAnswers += 1
             }
             
             // reset timer and continue quiz
@@ -65,7 +65,7 @@ struct GameView: View {
             let incorrectAnswers:[Int] = self.gameState.currentQuestion().incorrectAnswers()
             let highlighted:[Int] = incorrectAnswers[randomPick: 2]
             for i in highlighted {
-                self.gameState.optionStates[i] = .Highlighted
+                self.gameState.currentQuestion().options[i].state = .Highlighted
             }
         }
     }

@@ -17,10 +17,4 @@ class QuizQuestion : ObservableObject {
         self.answerIndex = answerIndex;
         self.options = options;
     }
-
-    public func incorrectAnswers() -> [Int] {
-        var incorrectAnswers:[Int] = [Int](options.indices.first!...options.indices.last!)
-        incorrectAnswers.remove(at: self.answerIndex)
-        return incorrectAnswers
-    }
 }
