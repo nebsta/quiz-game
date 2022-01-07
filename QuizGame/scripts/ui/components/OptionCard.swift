@@ -18,7 +18,7 @@ struct OptionCard : View  {
                 Text(textOption.text)
             }
         }
-        .frame(minWidth: 0, maxWidth: .infinity)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
         .aspectRatio(1, contentMode: .fit)
         .border(Color.black, width:5)
         .background(self.option.state == .Highlighted ? highlightColor() : .white)

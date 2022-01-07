@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject private var router:ViewRouter
+    @EnvironmentObject private var gameState:GameState
     
     private let questionProvider:QuestionProvider
     
@@ -23,7 +24,7 @@ struct RootView: View {
         case .Game:
             GameView(self.questionProvider)
         case.Summary:
-            SummaryView(GameState())
+            SummaryView()
         }
     }
 }

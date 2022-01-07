@@ -9,12 +9,7 @@ import SwiftUI
 
 struct SummaryView: View {
     @EnvironmentObject private var viewRouter:ViewRouter
-    
-    private let gameState:GameState
-    
-    public init(_ gameState:GameState) {
-        self.gameState = gameState
-    }
+    @EnvironmentObject private var gameState:GameState
     
     var body: some View {
         VStack {
@@ -47,6 +42,6 @@ struct SummaryView: View {
 
 struct SummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        SummaryView(GameState())
+        SummaryView()
     }
 }

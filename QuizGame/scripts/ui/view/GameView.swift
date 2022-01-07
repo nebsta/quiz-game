@@ -9,8 +9,7 @@ import SwiftUI
 
 struct GameView: View {
     @EnvironmentObject private var viewRouter:ViewRouter
-    
-    @StateObject private var gameState:GameState = GameState();
+    @EnvironmentObject private var gameState:GameState;
 
     private let questionProvider:QuestionProvider
     
@@ -21,7 +20,7 @@ struct GameView: View {
     var body: some View {
 
         VStack {
-            QuestionTimer(self.$gameState.timer.currentTimer, onTimerExpired)
+            QuestionTimer(self.gameState.timer, onTimerExpired)
                 .frame(maxHeight:80)
             QuestionPanel(self.gameState.currentQuestion(), onQuestionAnswered)
                 .padding(.horizontal, 10)
@@ -36,6 +35,8 @@ struct GameView: View {
     }
     
     private func onQuestionAnswered(_ optionIndex:Int) {
+        
+        self.gameState.timer.paused = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             
             // check if we've reached the end of the quiz

@@ -12,7 +12,9 @@ struct QuizGameApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RootView().environmentObject(ViewRouter())
+            RootView()
+                .environmentObject(ViewRouter())
+                .environmentObject(GameState())
         }
     }
 }

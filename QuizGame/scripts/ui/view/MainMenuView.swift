@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainMenuView: View {
-    
     @EnvironmentObject private var viewRouter:ViewRouter
     
     var body: some View {

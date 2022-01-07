@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct QuestionTimer: View {
-    @Binding public var timeRemaining:Int
+    @ObservedObject public var timer:TimerState
     
     private let onTimerExpired:() -> Void
     private let countdownTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    public init(_ timeRemaining:Binding<Int>, _ onTimerExpired:@escaping () -> Void) {
-        self._timeRemaining = timeRemaining
+    public init(_ timer:TimerState, _ onTimerExpired:@escaping () -> Void) {
+        self.timer = timer
         self.onTimerExpired = onTimerExpired
     }
     
@@ -24,30 +24,34 @@ struct QuestionTimer: View {
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
                 .opacity(0.2)
-            Text("\(self.timeRemaining)s")
+            Text("\(self.timer.currentTimer)s")
                 .font(.system(size: 30))
                 .bold()
         }.onReceive(countdownTimer) { time in
             
             // timer has finished and already triggered callback
-            guard self.timeRemaining != -1 else {
+            guard self.timer.currentTimer != -1 else {
                 return
             }
             
+            guard !self.timer.paused else {
+                return;
+            }
+            
             // the timer has finished
-            guard self.timeRemaining > 0 else {
-                self.timeRemaining = -1
+            guard self.timer.currentTimer > 0 else {
+                self.timer.currentTimer = -1
                 onTimerExpired()
                 return
             }
-            self.timeRemaining -= 1
+            self.timer.currentTimer -= 1
         }
     }
 }
 
 struct QuestionTimer_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionTimer(.constant(20)) {
+        QuestionTimer(TimerState()) {
             
         }
     }

@@ -38,6 +38,7 @@ class GameState : ObservableObject {
         self.summary.reset()
         self.timer.reset()
         
+        self.questions = []
         for question in questions {
             self.questions.append(QuizQuestionState(question))
         }
@@ -45,7 +46,6 @@ class GameState : ObservableObject {
     
     public func nextQuestion() {
         self.currentQuestionIndex += 1
-        
         self.timer.reset()
     }
 }
